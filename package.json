@@ -1,5 +1,5 @@
 {
-  "name": "project-template",
+  "name": "memory-card",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leetbeet/project-template.git"
+    "url": "git+https://github.com/leetbeet/memory-card.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leetbeet/project-template/issues"
+    "url": "https://github.com/leetbeet/memory-card/issues"
   },
-  "homepage": "https://github.com/leetbeet/project-template#readme",
+  "homepage": "https://github.com/leetbeet/memory-card#readme",
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
