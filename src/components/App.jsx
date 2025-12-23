@@ -1,0 +1,54 @@
+import Card from './Card.jsx';
+import { useState } from 'react';
+import CherryBomb from '../imgs/plants/Cherry_Bomb1.webp';
+import Chomper from '../imgs/plants/Chomper1.webp';
+import Peashooter from '../imgs/plants/Peashooter1.webp';
+import PotatoMine from '../imgs/plants/Potato_Mine1.webp';
+import Repeater from '../imgs/plants/Repeater1.webp';
+import SnowPea from '../imgs/plants/Snow_Pea1.webp';
+import Sunflower from '../imgs/plants/Sunflower1.webp';
+import WallNut from '../imgs/plants/Wall-nut1.webp';
+import BucketheadZombie from '../imgs/zombies/Buckethead_Zombie1.webp';
+import ConeheadZombie from '../imgs/zombies/Conehead_Zombie1.webp';
+import PoleVaultingZombie from '../imgs/zombies/Pole_Vaulting_Zombie1.webp';
+import Zombie from '../imgs/zombies/Zombie1.webp';
+
+const images = [
+  { name: 'Cherry Bomb', file: CherryBomb },
+  { name: 'Chomper', file: Chomper },
+  { name: 'Peashooter', file: Peashooter },
+  { name: 'Potato Mine', file: PotatoMine },
+  { name: 'Repeater', file: Repeater },
+  { name: 'Snow Pea', file: SnowPea },
+  { name: 'Sunflower', file: Sunflower },
+  { name: 'Wall-nut', file: WallNut },
+
+  { name: 'Buckethead Zombie', file: BucketheadZombie },
+  { name: 'Conehead Zombie', file: ConeheadZombie },
+  { name: 'Pole Vaulting Zombie', file: PoleVaultingZombie },
+  { name: 'Zombie', file: Zombie },
+];
+
+const shuffle = (arr) =>
+  Array.isArray(arr) ? [...arr].sort(() => Math.random() - 0.5) : [];
+
+export default function App() {
+  const [shuffledImages, setShuffledImages] = useState(images);
+
+  const handleClick = () => {
+    setShuffledImages(shuffle(images));
+  };
+
+  return (
+    <main>
+      {shuffledImages.map((image) => (
+        <Card
+          key={image.name}
+          img={image.file}
+          name={image.name}
+          onClick={() => handleClick(image)}
+        />
+      ))}
+    </main>
+  );
+}
