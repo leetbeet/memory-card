@@ -34,19 +34,32 @@ const shuffle = (arr) =>
 
 export default function App() {
   const [shuffledImages, setShuffledImages] = useState(images);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [guessArr, setGuessArr] = useState([]);
 
-  const handleClick = () => {
+  const handleClick = (image) => {
+    if (guessArr.includes(image)) {
+      setBestScore(Math.max(bestScore, score));
+      setScore(0);
+      setGuessArr([]);
+    } else {
+      setGuessArr([...guessArr, image]);
+      setScore(score + 1);
+    }
     setShuffledImages(shuffle(images));
   };
 
   return (
     <main>
+      <h2>Score: {score}</h2>
+      <h2>Best Score: {bestScore}</h2>
       {shuffledImages.map((image) => (
         <Card
           key={image.name}
           img={image.file}
           name={image.name}
-          onClick={() => handleClick(image)}
+          onClick={() => handleClick(image.name)}
         />
       ))}
     </main>
