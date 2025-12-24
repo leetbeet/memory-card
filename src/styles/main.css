@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff2d9;
+  color: #e3b84a;
+  font-family: 'Brian Kent', sans-serif;
+  min-height: 100vh;
+  background-image: url('../imgs/lawn-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+}

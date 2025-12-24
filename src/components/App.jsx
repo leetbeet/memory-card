@@ -1,5 +1,7 @@
 import Card from './Card.jsx';
 import { useState } from 'react';
+import '../styles/app.css';
+
 import CherryBomb from '../imgs/plants/Cherry_Bomb1.webp';
 import Chomper from '../imgs/plants/Chomper1.webp';
 import Peashooter from '../imgs/plants/Peashooter1.webp';
@@ -51,17 +53,21 @@ export default function App() {
   };
 
   return (
-    <main>
-      <h2>Score: {score}</h2>
-      <h2>Best Score: {bestScore}</h2>
-      {shuffledImages.map((image) => (
-        <Card
-          key={image.name}
-          img={image.file}
-          name={image.name}
-          onClick={() => handleClick(image.name)}
-        />
-      ))}
-    </main>
+    <>
+      <div className="scores">
+        <h2>Score: {score}</h2>
+        <h2>Best Score: {bestScore}</h2>
+      </div>
+      <main>
+        {shuffledImages.map((image) => (
+          <Card
+            key={image.name}
+            img={image.file}
+            name={image.name}
+            onClick={() => handleClick(image.name)}
+          />
+        ))}
+      </main>
+    </>
   );
 }

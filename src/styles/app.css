@@ -1,0 +1,29 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.scores {
+  font-size: 32px;
+  text-shadow: -2px -2px 0 #3b2a1a, 2px -2px 0 #3b2a1a, -2px 2px 0 #3b2a1a,
+    2px 2px 0 #3b2a1a;
+}
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
