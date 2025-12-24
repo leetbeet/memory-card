@@ -10,6 +10,46 @@ main {
     2px 2px 0 #3b2a1a;
 }
 
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-box {
+  background-color: #823e17;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+  border: 4px solid #57280d;
+}
+
+.dialog-box p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: -1px -1px 0 #3b2a1a, 1px -1px 0 #3b2a1a, -1px 1px 0 #3b2a1a,
+    1px 1px 0 #3b2a1a;
+}
+
+.dialog-box button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #337c35;
+  color: white;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   main {
     grid-template-columns: repeat(3, 1fr);

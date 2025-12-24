@@ -39,6 +39,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [guessArr, setGuessArr] = useState([]);
+  const [showDialog, setShowDialog] = useState(false);
 
   const handleClick = (image) => {
     if (guessArr.includes(image)) {
@@ -46,10 +47,23 @@ export default function App() {
       setScore(0);
       setGuessArr([]);
     } else {
+      const newScore = score + 1;
       setGuessArr([...guessArr, image]);
-      setScore(score + 1);
+      setScore(newScore);
+
+      if (newScore === 12) {
+        setShowDialog(true);
+      }
     }
     setShuffledImages(shuffle(images));
+  };
+
+  const handlePlayAgain = () => {
+    setScore(0);
+    setBestScore(0);
+    setGuessArr([]);
+    setShuffledImages(shuffle(images));
+    setShowDialog(false);
   };
 
   return (
@@ -58,6 +72,7 @@ export default function App() {
         <h2>Score: {score}</h2>
         <h2>Best Score: {bestScore}</h2>
       </div>
+
       <main>
         {shuffledImages.map((image) => (
           <Card
@@ -68,6 +83,15 @@ export default function App() {
           />
         ))}
       </main>
+
+      {showDialog && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <p>You win!</p>
+            <button onClick={handlePlayAgain}>Play again</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
